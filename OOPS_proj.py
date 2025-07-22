@@ -1,9 +1,32 @@
-class chatbook:
+class chatbook: #class
+    
+    __user_id = 0
+    
     def __init__(self): #constructor
-        self.username = ""
-        self.password = ""
-        self.LoggedIN = False
-        self.menu()
+        self.username = ""    #attributes
+        self.password = ""    #attributes
+        self.LoggedIN = False #attributes
+        # self.name = "default user"
+        self.__name = "Default User" #now we wont be able to access it anymore until...
+        # self.user_id = 0
+        # self.user_id += 1
+        # self.menu()
+        self.id = chatbook.__user_id
+        chatbook.__user_id += 1
+        
+    @staticmethod
+    def get_id():
+        return chatbook.__user_id
+        
+    @staticmethod
+    def set_id(val):
+        chatbook.__user_id = val
+        
+    def get_name(self): #return the name of the user ##getter and setter
+        return self.__name
+    
+    def set_name(self,value): #rename
+        self.__name = value
         
     def menu(self): #method
         user_input = input("""Welcome to Chatbook!! How would you like to proceed
@@ -66,4 +89,4 @@ class chatbook:
         print("\n")
         self.menu()
             
-user_1 = chatbook()
+# user_1 = chatbook()
